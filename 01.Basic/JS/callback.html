@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>callback</title>
+</head>
+<body>
+    <button>Click</button>
+
+    <script>
+        /*
+        Callback (콜백함수)
+        함수 안에서 어떤 특정 시점에 호출되는 함수
+        ex) 클릭 이벤트가 발생했을 때, 네트워크가 연결됐을 때 등
+        ** 구조적으로 함수 안에 인자로 들어가는 함수
+        */
+
+        // (1) 이벤트 핸들러
+        document.querySelector('button')
+        .addEventListener('click', ()=>{
+             alert('클릭!');
+        })
+
+        // (2) 타임 핸들러
+        console.log('시작');
+        setTimeout(()=>{
+            console.log('3초 후 실행');
+        }, 3000)
+        console.log('끝');
+
+    </script>
+</body>
+</html>
