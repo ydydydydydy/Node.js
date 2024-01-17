@@ -1,43 +1,37 @@
-// 파라미터 값이 주어지면
-// 1초 뒤에 10을 더해서 반환
-
-const increase = (number, callback)=>{
-    setTimeout(()=>{
-        const result = number+10;
-        if(callback){
-            callback(result)
-        }
-    }, 1000)
+const increase = number=>{
+    const promise = new Promise((resolve, reject)=>{
+        // resolve -> 성공, reject -> 실패
+        setTimeout(()=>{
+            // number 값에 +10 후 성공 처리
+            const result = number+10
+            resolve(result);
+        }, 1000)
+    })
+    return promise;
 }
 
-// 1초 뒤에 10을 반환
-increase(0, (result)=>{
-    console.log(result); // 10
-    increase(result, result=>{
-        console.log(result); // 20
-        increase(result, result=>{
-            console.log(result); // 30
-            increase(result, result=>{
-                console.log(result); // 40
-                increase(result, result=>{
-                    console.log(result); // 50
-                    increase(result, result=>{
-                        console.log(result); // 60
-                        increase(result, result=>{
-                            console.log(result); // 70
-                            increase(result, result=>{
-                                console.log(result); // 80
-                                increase(result, result=>{
-                                    console.log(result); // 90
-                                    increase(result, result=>{
-                                        console.log(result); // 100
-                                    })
-                                })
-                            })
-                        })
-                    })
-                })
-            })
-        })
-    })
+increase(0)
+.then(number=>{
+    console.log(number); // 10
+    return increase(number)
+})
+.then(number=>{
+    console.log(number); // 20
+    return increase(number)
+})
+.then(number=>{
+    console.log(number); // 30
+    return increase(number)
+})
+.then(number=>{
+    console.log(number); // 40
+    return increase(number)
+})
+.then(number=>{
+    console.log(number); // 50
+    return increase(number)
+})
+.catch(error=>{
+    // 도중에 에러가 발생한다면 catch를 통해 알 수 있음
+    console.log(error);
 })
