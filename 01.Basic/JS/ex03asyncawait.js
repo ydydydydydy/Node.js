@@ -1,3 +1,16 @@
+/*
+promise 객체 생성
+- 첫 번째 인자 : 성공시 결과값
+- 두 번째 인자 : 실패시 에러
+
+async
+- 함수 앞에 작성
+
+await
+- 작업 완료를 기다릴 구문 앞에 작성
+- async 함수 안에서 동작
+*/
+
 const increase = number=>{
     const promise = new Promise((resolve, reject)=>{
         // resolve -> 성공, reject -> 실패
