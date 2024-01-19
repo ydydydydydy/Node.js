@@ -7,11 +7,15 @@
 </head>
 <body>
     <form action="result" method="get">
-        <input type="text" name="num1"
-        placeholder="첫번째 숫자">
-        +
-        <input type="text" name="num2"
-        placeholder="두번째 숫자">
+        <input type="text" name="num1" placeholder="첫번째 숫자">
+        <!-- + -->
+        <select name="cal">
+            <option value="plus">+</option>
+            <option value="minus">-</option>
+            <option value="multiply">*</option>
+            <option value="divide">/</option>
+        </select>
+        <input type="text" name="num2" placeholder="두번째 숫자">
         <input type="submit" value="=">
     </form>
 </body>
