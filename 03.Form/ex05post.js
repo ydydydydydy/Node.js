@@ -1,6 +1,6 @@
 const http = require('http');
 const fs = require('fs').promises;
-const url = require('url');
+
 /*
  querystring 모듈 : querystring 관련 모듈
  qs.parse() : 쿼리 문자열 -> 객체
@@ -11,9 +11,6 @@ http.createServer(async (req, res)=>{
     console.log('create server');
     const file = await fs.readFile('./ex05post.html');
 
-
-    const parseUrl = url.parse(req.url, true);
-    console.log('parseUrl : ', parseUrl);
     /*
     req.on(event type, callback): 이벤트처리
     
@@ -35,29 +32,21 @@ http.createServer(async (req, res)=>{
     
     // 데이터 수식 및 누적이 끝나면 데이터 출력
     req.on('end', ()=>{
-        let parseQs = qs.parse(body)
+        const parseQs = qs.parse(body)
         console.log('parseQs : ', parseQs);
-    })
-
-    res.writeHead(200, {'Content-Type' : 'text/html; charset=utf-8'});
-    switch(parseUrl.pathname){
-        case '/' :
-        res.write(file);
-        case '/result' :
-        const data = `
+        res.writeHead(200, {'Content-Type' : 'text/html; charset=utf-8'});
+        req.url==='/' && res.write(file);
+        req.url==='/result' && res.write(`
         <html>
-            <body>
-                <p>내가 좋아하는 가수는 ${parseUrl.query.musician}이며</p>
-                <p>내가 좋아하는 음악은 ${parseUrl.query.music}입니다.</p>
-            </body>
+        <body>
+            <p>내가 좋아하는 가수는 ${parseQs.musician}이며</p>
+            <p>내가 좋아하는 음악은 ${parseQs.music}입니다.</p>
+        </body>
         </html>
-        `
-        res.write(data); break;
-    }
-            
-    res.end();
-    
-})
+        `);
+        res.end();
+    })
+})      
 .listen(8000, ()=>{
     console.log('Server is listening on port 8000');
 })
