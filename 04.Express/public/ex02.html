@@ -6,11 +6,21 @@
     <title>main</title>
 </head>
 <body>
-    <form action="#" method="get">
+    <h1>GET 방식</h1>
+    <form action="/get" method="get">
         <input type="text"
         placeholder="토요일의 주요 활동" name="sat">
         <input type="text"
         placeholder="일요일의 주요 활동" name="sun">
+        <input type="submit">
+    </form>
+    <br>
+    <h1>POST 방식</h1>
+    <form action="/post" method="post">
+        <input type="text"
+        placeholder="ID를 입력하세요" name="userId">
+        <input type="password"
+        placeholder="PW를 입력하세요" name="userPw">
         <input type="submit">
     </form>
 </body>
