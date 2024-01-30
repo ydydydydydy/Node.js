@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!--
+        Nunjucks 사용 방법
+        => JS 문법을 사용하려면 중괄호 두 개로 감싸준다
+    -->
+
+    <h1>Welcome to {{name}} Page!</h1>
+
+    <!--
+        1. 변수
+        set 변수명 = 값
+    -->
+    {% set pos = 'c강의장' %}
+    <P>{{pos}} 여러분 안녕하세요! </P>
+
+    <!--
+        2. 조건문
+        if 조건식
+        elif 조건식2
+        else
+        endif
+    -->
+    {% set time = '오전' %}
+    {% if time === '오전' %}
+    <p>오전은 세영쌤과 Node.js 시간입니다!</p>
+    {% elif time === '오후' %}
+    <p>오후는 명진쌤과 React.js 시간입니다!</p>
+    {% else %}
+    <p>QR 잊지마세요!</p>
+    {% endif %}
+
+    <!--
+        3. 반복분
+        for in + endfor
+        반복 시작 : for 변수 in 배열
+        반복 끝 : endfor
+    -->
+    {% set menu = ['크림뚝불', '크림순대국밥', '크림부대찌개'] %}
+    <ul>
+        {% for item in menu %}
+        <li>제가 좋아하는 것은 {{item}}입니다.</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

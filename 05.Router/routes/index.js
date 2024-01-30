@@ -27,19 +27,6 @@ router.get('/login', (req, res)=>{
     `)
 })
 
-router.get('/user/hee', (req, res)=>{
-    res.send(`
-    <html>
-        <body>
-            <h1>HEE</h1>
-            <img src="./hee.jpg" alt="">
-            <img src="hee.jpg" alt="">
-            <img src="/path/to/hee.jpg" alt="">
-            <img src="./tae.jpg" alt="">
-        </body>
-    </html>
-    `)
-    res.sendFile(path.join(__dirname, '..', 'public/hee.jpg'))
-})
+
 
 module.exports = router;

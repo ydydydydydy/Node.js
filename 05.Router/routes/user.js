@@ -11,4 +11,15 @@ router.get('/', (req, res)=>{
     `)
 })
 
+router.get('/:name', (req, res)=>{
+    console.log('라우트 매개변수', req.params);
+    res.send(`
+    <html>
+        <body>
+            <h1>Welcome ${req.params.name} !💚</h1>
+        </body>
+    </html>
+   `)
+})
+
 module.exports = router;
