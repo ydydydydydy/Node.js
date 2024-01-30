@@ -1,0 +1,24 @@
+Express
+- 웹 프레임워크 for Node.js
+- 분업화 구조 (cofig, public, routes, views)
+
+사용방법
+(1) (터미널) npm init -y
+(2) (터미널) npm i Express
+(3) const express = require('express)
+(4) const app = express()
+
+서버생성
+app.method(path, callback)
+app.set('port', process.env.PORT || 8000)
+app.listen(app.get('port))
+
+응답
+Case 1) 단순 문자열 : res.send()
+Case 2) HTML 문서 : res.sendFile()
+__dirname : 현재 파일이 위치한 디렉토리의 절대 경로까지
+app.use(express.static(__dirname'/public'))
+
+GET/POST
+GET => req.query
+POST => req.body (body-parser 모듈 필요)
