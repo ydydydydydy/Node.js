@@ -1,11 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
+{% extends "layout.html" %}
+
+    {% block content %}
     <!--
         Nunjucks 사용 방법
         => JS 문법을 사용하려면 중괄호 두 개로 감싸준다
@@ -45,8 +40,22 @@
     {% set menu = ['크림뚝불', '크림순대국밥', '크림부대찌개'] %}
     <ul>
         {% for item in menu %}
-        <li>제가 좋아하는 것은 {{item}}입니다.</li>
+        <li>제가 좋아하는 것은 {{loop.index}} : {{item}}입니다.</li>
         {% endfor %}
     </ul>
-</body>
-</html>
+
+    <!--
+        4. include
+        다른 html 파일을 포함
+    -->
+    {% include "refer.html" %}
+
+    <!--
+        5. extends와 block
+        공통되는 레이아웃 부분을 따로 관리할 수 있음
+    -->
+{% endblock %}
+
+{% block lunch %}
+<h3> 점심메뉴는 고구마🥔 </h3>
+{% endblock %}

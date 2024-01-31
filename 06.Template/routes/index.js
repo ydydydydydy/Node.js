@@ -8,4 +8,9 @@ router.get('/', (req, res)=>{
     res.render('main', {name : 'heejae park'});
 })
 
+// /mypage => mypage.html
+router.get('/mypage', (req, res)=>{
+    res.render('mypage');
+})
+
 module.exports = router;

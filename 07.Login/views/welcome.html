@@ -1,0 +1,13 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<h1>{{data.userId}}님 환영합니다💙</h1>
+<p>{{data.gender}}의 {{data.bloodType}}이시군요</p>
+<p>
+    취미는
+    {% for item in data.hobby %}
+    <strong>{{item}}</strong>
+    {% endfor %}
+    이군요
+</p>
+{% endblock %}
