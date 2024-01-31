@@ -14,7 +14,11 @@ router.post('/welcome', (req, res)=>{
 
 router.post('/result', (req, res)=>{
     console.log('result page', req.body);
-    res.render('result', {data : req.body});
+    const {userId, userPw} = req.body;
+    const result = 
+    userId === 'admin' && userPw === '1234'
+    ? '성공' : '실패';
+    res.render('result', {result : result});
 })
 
 module.exports = router;
