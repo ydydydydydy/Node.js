@@ -1,0 +1,19 @@
+{% extends "layout.html" %}
+{% block content %}
+<h4> 회원가입 페이지 </h4>
+<form method="post" action="/user/handleSignuUp">
+    <div class="mb-3">
+      <label for="exampleInputId" class="form-label">ID</label>
+      <input type="text" class="form-control" id="exampleInputId" name="userId">
+    </div>
+    <div class="mb-3">
+      <label for="exampleInputPassword1" class="form-label">비밀번호</label>
+      <input type="password" class="form-control" id="exampleInputPassword1" name="userPw">
+    </div>
+    <div class="mb-3">
+        <label for="exampleInputNick" class="form-label">Nickname</label>
+        <input type="text" class="form-control" id="exampleInputNick" name="userNick">
+      </div>
+    <button type="submit" class="btn btn-primary">회원가입</button>
+  </form>
+{% endblock %}

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <title>Document</title>
+
+    <style>
+        body {
+            padding: 5%;
+        }
+
+        @font-face {
+        font-family: 'SOGANGUNIVERSITYTTF';
+        src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2312-1@1.1/SOGANGUNIVERSITYTTF.woff2') format('woff2');
+        font-weight: normal;
+        font-style: normal;
+    }
+
+        * {
+            font-family: 'SOGANGUNIVERSITYTTF';
+        }
+        .btn-dark {
+            font-family: 'SOGANGUNIVERSITYTTF';
+        }
+        a{
+            text-decoration: none;
+            color: black;
+        }
+    </style>
+
+</head>
+<body>
+    <a href="/">
+        <h1>회원관리시스템</h1>
+    </a>
+    <a href="/signup">
+        <button type="button" class="btn btn-dark">회원가입</button>
+    </a>
+    <a href="signin">
+    <button type="button" class="btn btn-dark">로그인</button>
+    </a>
+    <button type="button" class="btn btn-dark">로그아웃</button>
+    <hr>
+    {% block content %}
+    {% endblock %}
+    <hr>
+    
+    <span>
+        문의전화 : 010-1234-5678
+        <br>
+        이메일 = test@test.com
+    </span>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+</body>
+</html>

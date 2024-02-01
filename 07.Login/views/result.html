@@ -1,4 +1,10 @@
 {% extends "layout.html" %}
 {% block content %}
-<h2>로그인 시도 결과 : {{result}}</h2>
+
+{% if data.userId === 'admin' and data.userPw === '1234' %}
+<h2>로그인 시도 결과 : 성공</h2>
+{% else %}
+<h2>로그인 시도 결과 : 실패</h2>
+{% endif %}
+
 {% endblock %}
