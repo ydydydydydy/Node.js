@@ -1,0 +1,12 @@
+{% extends "layout.html" %}
+{% block content %}
+<h4> 회원검색 페이지 </h4>
+<form method="get" action="/user/showList">
+    <div class="mb-3">
+      <label for="exampleInputId" class="form-label">ID</label>
+      <input type="text" class="form-control" 
+      id="exampleInputId" name="userId">
+    </div>
+    <button type="submit" class="btn btn-primary">검색</button>
+  </form>
+{% endblock %}

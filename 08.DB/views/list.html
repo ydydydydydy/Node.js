@@ -1,0 +1,23 @@
+{% extends "layout.html" %}
+{% block content %}
+<h4> 회원목록 페이지 </h4>
+<p>회원목록 페이지입니다.👨‍👨‍👧</p>
+<table class= "table table-hover">
+    <thead>
+      <tr>
+        <th scope="col">No</th>
+        <th scope="col">ID</th>
+        <th scope="col">Nickname</th>
+      </tr>
+    </thead>
+    <tbody>
+        {% for item in rows %}
+        <tr>
+            <th scope="row">{{loop.index}}</th>
+            <td>{{item.id}}</td>
+            <td>{{item.nick}}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+  </table>
+{% endblock %}

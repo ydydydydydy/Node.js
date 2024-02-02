@@ -19,4 +19,10 @@ router.get('/signin', (req, res) => {
     res.render('signin');
 })
 
+// 회원검색 페이지
+router.get('/search', (req,res)=> {
+    res.render('search');
+})
+
+
 module.exports = router;
