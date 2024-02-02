@@ -80,4 +80,22 @@ router.get('/showList', (req,res)=>{
     }
 })
 
+// 회원탈퇴 기능
+router.post('/handleDelete', (req, res)=>{
+    console.log('delete data', req.body);
+    const {userId, userPw} = req.body;
+    const sql = 'delete from nodejs_member where id=? and pw=?'
+    conn.query(sql, [userId, userPw], (err, rows)=>{
+        console.log('rows', rows);
+        if(rows.affectedRows>0){
+            res.redirect('/');
+        } else {
+            res.send(`<script>
+            alert('존재하지 않는 회원 정보입니다.');
+            location.href='/delete';
+            </script>`);
+        }
+    })
+})
+
 module.exports = router;
