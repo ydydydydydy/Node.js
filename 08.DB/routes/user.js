@@ -49,7 +49,9 @@ router.post('/handleSignIn', (req, res)=>{
         console.log('rows', rows);
         if (rows.length>0){
             console.log('로그인 성공');
-            res.redirect('/')
+            req.session.nickname = rows[0].nick;
+            // res.redirect('/')
+            res.send(`<script>location.href='/'</script>`);
         } else {
             console.log('로그인 실패');
             res.send(`<script>

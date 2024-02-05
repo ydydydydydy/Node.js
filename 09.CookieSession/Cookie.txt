@@ -1,0 +1,6 @@
+nodeJS > mkdir 09.CookieSession
+nodeJS > cd 09.CookieSession
+09. ~> npm init -y
+09. ~> npm install express
+cookie-parser express-session
+session-file-store

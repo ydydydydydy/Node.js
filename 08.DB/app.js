@@ -14,6 +14,8 @@ const indexRouter = require('./routes');
 const userRouter = require('./routes/user');
 const nunjucks = require('nunjucks');
 const bodyParser = require('body-parser');
+const session = require('express-session');
+const fileStore = require('session-file-store')(session);
 
 app.set('port', process.env.PORT || 8000);
 app.set('view engine','html');
@@ -23,6 +25,12 @@ nunjucks.configure('views', {
 });
 
 app.use(bodyParser.urlencoded({extended : true}));
+app.use(session({
+    httpOnly : true, // HTTP 프로토콜을 통한 접근만 가능
+    resave : false, // 불필요한 세션 저장 방지
+    secret : 'secret', // 암호화 키
+    store: new fileStore() // 세션 저장소
+}))
 app.use('/', indexRouter);
 app.use('/user', userRouter);
 
