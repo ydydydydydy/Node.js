@@ -43,7 +43,7 @@ router.post('/handleSignuUp', (req,res)=>{
 router.post('/handleSignIn', (req, res)=>{
     console.log('sign data', req.body);
     const {userId, userPw} = req.body;
-    const sql = 'select id from nodejs_member where id=? and pw=?';
+    const sql = 'select id, nick from nodejs_member where id=? and pw=?';
     conn.query(sql, [userId, userPw], (err, rows)=>{
         console.log('err', err);
         console.log('rows', rows);
@@ -98,6 +98,12 @@ router.post('/handleDelete', (req, res)=>{
             </script>`);
         }
     })
+})
+
+// 로그아웃 기능
+router.get('./signout', (req, res)=>{
+    req.session.destroy();
+    res.redirect('/');
 })
 
 module.exports = router;

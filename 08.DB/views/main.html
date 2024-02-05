@@ -1,6 +1,9 @@
 {% extends "layout.html" %}
 {% block content %}
 <h4> 메인 페이지 </h4>
-<img src="../public/img1.jpg" alt="이미지">
-<p>환영합니다.😇</p>
+{% if nickname %}
+<p>{{nickname}}님 환영합니다.😇</p>
+{% else %}
+<p>로그인을 해주세요.</p>
+{% endif %}
 {% endblock %}

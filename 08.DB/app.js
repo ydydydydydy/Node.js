@@ -31,6 +31,7 @@ app.use(session({
     secret : 'secret', // 암호화 키
     store: new fileStore() // 세션 저장소
 }))
+app.use(express.static(__dirname+'/public'))
 app.use('/', indexRouter);
 app.use('/user', userRouter);
 

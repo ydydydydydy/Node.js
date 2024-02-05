@@ -28,6 +28,10 @@
             text-decoration: none;
             color: black;
         }
+        img {
+            width: 360px;
+            height: 480px;
+        }
     </style>
 
 </head>
@@ -41,7 +45,9 @@
     <a href="signin">
     <button type="button" class="btn btn-dark">로그인</button>
     </a>
+    <a href="/user/signout">
     <button type="button" class="btn btn-dark">로그아웃</button>
+    </a>
     <a href="/user/showList">
         <button type="button" class="btn btn-dark">전체회원검색</button>
     </a>
@@ -51,6 +57,7 @@
     <a href="/delete">
         <button type="button" class="btn btn-dark">회원탈퇴</button>
     </a>
+    <img src="img1.jpg" alt="">
     <hr>
     {% block content %}
     {% endblock %}
